@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Cat Shop - Products & Promotions</title>
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/releases/v6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.95)), url('background.menu.1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style Navigation Bar */
+        .navbar-custom {
+            background-color: #1a1a1a;
+            border-bottom: 2px solid #c9a25b;
+        }
+
+        .navbar-logo {
+            height: 40px; 
+            width: auto;
+            object-fit: contain;
+        }
+
+        .text-gold {
+            color: #c9a25b !important;
+        }
+
+        .btn-call {
+            background-color: #c9a25b;
+            color: #121212;
+            font-weight: bold;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-call:hover {
+            background-color: #e5b869;
+            color: #121212;
+            box-shadow: 0 0 15px rgba(201, 162, 91, 0.6);
+        }
+
+        /* Iklan Modal Style */
+        .modal-promo-content {
+            background-color: #1a1a1a;
+            border: 3px solid #c9a25b;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .btn-close-promo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 1055;
+            background-color: rgba(201, 162, 91, 0.85);
+            border-radius: 50%;
+            padding: 10px;
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+
+        .btn-close-promo:hover {
+            background-color: #e5b869;
+            transform: scale(1.1);
+        }
+
+        .carousel-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Section Why Choose Us */
+        .why-choose-us-section {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(201, 162, 91, 0.2);
+            border-bottom: 1px solid rgba(201, 162, 91, 0.2);
+            padding: 60px 0;
+        }
+
+        /* Container Kreatif & Efek Glowing/Bintang untuk Kucing Solo */
+        .cat-showcase-container {
+            position: relative;
+            display: inline-block;
+            padding: 30px;
+        }
+
+       
+        @keyframes goldGlow {
+            0% { filter: drop-shadow(0px 0px 15px rgba(201, 162, 91, 0.5)); }
+            50% { filter: drop-shadow(0px 0px 35px rgba(229, 184, 105, 0.9)); }
+            100% { filter: drop-shadow(0px 0px 15px rgba(201, 162, 91, 0.5)); }
+        }
+
+        .cat-glowing-img {
+            max-width: 115%; /* Dibesarkan daripada saiz asal */
+            height: auto;
+            position: relative;
+            z-index: 2;
+            animation: goldGlow 4s ease-in-out infinite;
+            transition: transform 0.4s ease;
+        }
+
+        .cat-glowing-img:hover {
+            transform: scale(1.04) translateY(-5px);
+        }
+
+        
+        .sparkle-star {
+            position: absolute;
+            color: #e5b869;
+            opacity: 0;
+            z-index: 1;
+            animation: starTwinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes starTwinkle {
+            0% { transform: scale(0) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: scale(1.2) rotate(180deg); opacity: 0; }
+        }
+
+        
+        .star-1 { top: 10%; left: 20%; font-size: 1.2rem; animation-delay: 0.2s; }
+        .star-2 { top: 25%; right: 10%; font-size: 1.5rem; animation-delay: 1.1s; }
+        .star-3 { bottom: 20%; left: 15%; font-size: 1rem; animation-delay: 0.7s; }
+        .star-4 { bottom: 40%; right: 5%; font-size: 1.3rem; animation-delay: 1.8s; }
+        .star-5 { top: 50%; left: 5%; font-size: 0.9rem; animation-delay: 2.3s; }
+
+        .feature-badge {
+            background: rgba(201, 162, 91, 0.1);
+            border-left: 4px solid #c9a25b;
+            padding: 15px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 15px;
+        }
+
+        /* Product Cards Grid */
+        .product-card {
+            background: rgba(26, 26, 26, 0.85);
+            border: 1px solid rgba(201, 162, 91, 0.3);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: #c9a25b;
+            box-shadow: 0 10px 20px rgba(201, 162, 91, 0.2);
+        }
+
+        .product-thumb {
+            height: 200px;
+            width: 100%;
+            object-fit: contain;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 14px 14px 0 0;
+        }
+
+        .price-tag {
+            font-size: 1.3rem;
+            color: #c9a25b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-gold d-flex align-items-center" href="menu.html">
+                <img src="picture/logo.png" alt="Logo" class="navbar-logo me-2" onerror="this.style.display='none'">
+                <span>Amazing Cat Shop</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="menu.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="menu.html#cat-profile-section">Cat Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="service.html">Our Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-gold" href="products.html">Shop Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="dashboard.html">Customer Dashboard</a>
+                    </li>
+                </ul>
+                <a href="https://wa.me/60172645813" target="_blank" class="btn btn-call btn-sm px-4 rounded-pill">Call Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER HALAMAN -->
+    <div class="container text-center my-5">
+        <h1 class="fw-bold text-white display-5">PREMIUM CAT <span class="text-gold">PRODUCTS</span></h1>
+        <p class="text-white-50 mx-auto" style="max-width: 600px;">Explore our high-quality nutrition foods, daily supplements, and exclusive items carefully curated for your feline companion.</p>
+    </div>
+
+    <!-- SECTION: WHY CHOOSE US? -->
+    <div class="why-choose-us-section my-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <!-- Sebelah Kiri: Penerangan & Kriteria -->
+                <div class="col-md-7">
+                    <h5 class="text-gold text-uppercase tracking-wider fw-bold mb-2">✦ Our Promise</h5>
+                    <h2 class="fw-bold text-white mb-4 display-6">Why Choose Amazing Cat Shop?</h2>
+                    
+                    <p class="text-white-50 mb-4">
+                        Sama seperti komitmen penjagaan eksklusif kami di cawangan Puchong Perdana, setiap produk dan servis hospitaliti yang kami sediakan dipilih mengikut piawaian kualiti nutrisi dan keselesaan tertinggi kucing anda.
+                    </p>
+
+                    <div class="feature-badge">
+                        <h5 class="text-gold fw-bold mb-1"><i class="fas fa-heart me-2"></i>Tailored Nutritional Wellness</h5>
+                        <p class="small text-white-50 m-0">Kami hanya membekalkan produk makanan gred premium yang menyokong bulu sihat, penghadaman lancar, dan mengurangkan risiko alahan.</p>
+                    </div>
+
+                    <div class="feature-badge">
+                        <h5 class="text-gold fw-bold mb-1"><i class="fas fa-sparkles me-2"></i>Grooming Excellence Standard</h5>
+                        <p class="small text-white-50 m-0">Setiap slot dandanan dikendalikan oleh groomer profesional bagi memastikan kucing anda tenang, bersih, dan bebas kutu.</p>
+                    </div>
+                </div>
+
+                <!-- Sebelah Kanan: Gambar Kucing Solo Berkilat + Bintang (cat1.png) -->
+                <div class="col-md-5 text-center">
+                    <div class="cat-showcase-container">
+                        <!-- Komponen Bintang Latar Belakang -->
+                        <i class="fas fa-star sparkle-star star-1"></i>
+                        <i class="fas fa-star sparkle-star star-2"></i>
+                        <i class="fas fa-star sparkle-star star-3"></i>
+                        <i class="fas fa-star sparkle-star star-4"></i>
+                        <i class="fas fa-star sparkle-star star-5"></i>
+                        
+                        <!-- Gambar Kucing kt sini -->
+                        <img src="cat1.png" alt="Amazing Cat" class="cat-glowing-img" onerror="this.src='https://placehold.co/400x400/1a1a1a/c9a25b?text=cat1.png'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- KATEGORI 1: CAT PREMIUM FOODS -->
+    <div class="container my-5">
+        <div class="d-flex align-items-center mb-4">
+            <h3 class="fw-bold text-gold m-0"><i class="fas fa-bone me-2"></i>Premium Nutrition</h3>
+            <span class="badge bg-warning text-dark ms-3 rounded-pill fw-bold">In Stock</span>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+            <!-- Product 1 -->
+            <div class="col">
+                <div class="card product-card">
+                    <img src="rcfit.png" class="product-thumb" alt="Royal Canin Fit" onerror="this.src='https://placehold.co/300x300/ffffff/121212?text=rcfit.png'">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge bg-secondary mb-2">Dry Food</span>
+                            <h5 class="card-title fw-bold text-white mb-1">Royal Canin Fit 32</h5>
+                            <p class="small text-white-50 mb-3">Ideal for active adult cats to maintain ideal weight.</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <span class="price-tag">RM 85.00</span>
+                            <button class="btn btn-sm btn-outline-warning rounded-circle"><i class="fas fa-shopping-basket"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="col">
+                <div class="card product-card">
+                    <img src="orijen.png" class="product-thumb" alt="Orijen" onerror="this.src='https://placehold.co/300x300/ffffff/121212?text=orijen.png'">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge bg-danger mb-2">Grain Free</span>
+                            <h5 class="card-title fw-bold text-white mb-1">Orijen Six Fish</h5>
+                            <p class="small text-white-50 mb-3">Packed with wild-caught fish protein for coat shine.</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <span class="price-tag">RM 145.00</span>
+                            <button class="btn btn-sm btn-outline-warning rounded-circle"><i class="fas fa-shopping-basket"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="col">
+                <div class="card product-card">
+                    <img src="brit.png" class="product-thumb" alt="Brit" onerror="this.src='https://placehold.co/300x300/ffffff/121212?text=brit.png'">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge bg-secondary mb-2">Hypoallergenic</span>
+                            <h5 class="card-title fw-bold text-white mb-1">Brit Care Sensitive</h5>
+                            <p class="small text-white-50 mb-3">Perfect formula for cats with sensitive stomachs.</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <span class="price-tag">RM 72.00</span>
+                            <button class="btn btn-sm btn-outline-warning rounded-circle"><i class="fas fa-shopping-basket"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 4 -->
+            <div class="col">
+                <div class="card product-card">
+                    <img src="totw.png" class="product-thumb" alt="Taste of the Wild" onerror="this.src='https://placehold.co/300x300/ffffff/121212?text=totw.png'">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge bg-secondary mb-2">Dry Food</span>
+                            <h5 class="card-title fw-bold text-white mb-1">Taste of the Wild</h5>
+                            <p class="small text-white-50 mb-3">Roasted venison & smoked salmon high protein mix.</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <span class="price-tag">RM 98.00</span>
+                            <button class="btn btn-sm btn-outline-warning rounded-circle"><i class="fas fa-shopping-basket"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- KATEGORI 2: CARE & ACCESSORIES -->
+    <div class="container my-5 pt-3">
+        <div class="d-flex align-items-center mb-4">
+            <h3 class="fw-bold text-gold m-0"><i class="fas fa-pump-medical me-2"></i>Care & Accessories</h3>
+            <span class="badge bg-info text-dark ms-3 rounded-pill fw-bold">Best Sellers</span>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 mb-5">
+            <!-- Item 1 -->
+            <div class="col">
+                <div class="card product-card">
+                    <img src="salmonoil.png" class="product-thumb" alt="Salmon Oil" onerror="this.src='https://placehold.co/300x300/ffffff/121212?text=salmonoil.png'">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge bg-primary mb-2">Supplements</span>
+                            <h5 class="card-title fw-bold text-white mb-1">Premium Salmon Oil</h5>
+                            <p class="small text-white-50 mb-3">Rich in Omega-3 to treat skin shedding & allergies.</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <span class="price-tag">RM 45.00</span>
+                            <button class="btn btn-sm btn-outline-warning rounded-circle"><i class="fas fa-shopping-basket"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="col">
+                <div class="card product-card">
+                    <img src="kutu.png" class="product-thumb" alt="Ubat Kutu" onerror="this.src='https://placehold.co/300x300/ffffff/121212?text=kutu.png'">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge bg-primary mb-2">Medical</span>
+                            <h5 class="card-title fw-bold text-white mb-1">Flea Drop Treatment</h5>
+                            <p class="small text-white-50 mb-3">Fast-acting spot-on solution to prevent fleas.</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <span class="price-tag">RM 29.00</span>
+                            <button class="btn btn-sm btn-outline-warning rounded-circle"><i class="fas fa-shopping-basket"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="col">
+                <div class="card product-card">
+                    <img src="tofu.png" class="product-thumb" alt="Tofu Litter" onerror="this.src='https://placehold.co/300x300/ffffff/121212?text=tofu.png'">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge bg-success mb-2">Eco Friendly</span>
+                            <h5 class="card-title fw-bold text-white mb-1">Premium Tofu Litter</h5>
+                            <p class="small text-white-50 mb-3">100% biodegradable, fast clumping, flushable.</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <span class="price-tag">RM 22.00</span>
+                            <button class="btn btn-sm btn-outline-warning rounded-circle"><i class="fas fa-shopping-basket"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="col">
+                <div class="card product-card">
+                    <img src="shampoo.png" class="product-thumb" alt="Cat Shampoo" onerror="this.src='https://placehold.co/300x300/ffffff/121212?text=shampoo.png'">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge bg-primary mb-2">Grooming</span>
+                            <h5 class="card-title fw-bold text-white mb-1">Organic Medicated Soap</h5>
+                            <p class="small text-white-50 mb-3">Gentle formula specifically designed anti-fungal care.</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <span class="price-tag">RM 38.00</span>
+                            <button class="btn btn-sm btn-outline-warning rounded-circle"><i class="fas fa-shopping-basket"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ADVERTISEMENT SLIDE (AUTO OPEN) -->
+    <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-promo-content">
+                
+                
+                <button type="button" class="btn-close btn-close-white btn-close-promo" data-bs-dismiss="modal" aria-label="Close"></button>
+                
+                <!-- IMAGE SLIDER -->
+                <div id="promoCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    
+                    <!-- Petunjuk Slaid (Indicators) -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#promoCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                        <button type="button" data-bs-target="#promoCarousel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#promoCarousel" data-bs-slide-to="2"></button>
+                    </div>
+
+                    
+                    <div class="carousel-inner">
+                        <!-- Slide fes- grooming.png -->
+                        <div class="carousel-item active" data-bs-interval="3000">
+                            <img src="grooming.png" class="carousel-img" alt="First Grooming Promo" onerror="this.src='https://placehold.co/800x400/c9a25b/121212?text=grooming.png+-+First+Grooming+Promo'">
+                            <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.6); border-radius: 10px;">
+                                <h5 class="text-gold fw-bold">Premium Grooming Experience</h5>
+                                <p class="small">Slaid 1: Diskaun istimewa untuk pendaftaran slot pertama kucing anda.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 2: deals.png -->
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <img src="deals.png" class="carousel-img" alt="Hot Deals" onerror="this.src='https://placehold.co/800x400/1a1a1a/c9a25b?text=deals.png+-+Exclusive+Hot+Deals'">
+                            <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.6); border-radius: 10px;">
+                                <h5 class="text-gold fw-bold">Exclusive Hot Deals</h5>
+                                <p class="small">Slaid 2: Tawaran kombo pakej makanan premium dan cat boarding.</p>
+                            </div>
+                        </div>
+                        <!-- Slaid 3: deals1.png -->
+                        <div class="carousel-item" data-bs-interval="3000">
+                            <img src="deals1.png" class="carousel-img" alt="Weekend Special Deals" onerror="this.src='https://placehold.co/800x400/2c3e50/ffffff?text=deals1.png+-+Weekend+Special+Deals'">
+                            <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.6); border-radius: 10px;">
+                                <h5 class="text-gold fw-bold">Weekend Flash Sale</h5>
+                                <p class="small">Slaid 3: Harga runtuh barangan eksklusif aksesori si bulu.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    <button class="carousel-control-prev" type="button" data-bs-target="#promoCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#promoCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                var myModal = new bootstrap.Modal(document.getElementById('promoModal'));
+                myModal.show();
+            }, 800);
+        });
+    </script>
+</body>
+</html>

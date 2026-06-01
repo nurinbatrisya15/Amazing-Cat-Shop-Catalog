@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Cat Shop - Our Services</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/releases/v6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+           
+            background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 0.85)), url('boarding.bg.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Style Navigation Bar */
+        .navbar-custom {
+            background-color: #1a1a1a;
+            border-bottom: 2px solid #c9a25b;
+        }
+
+        .navbar-logo {
+            height: 40px; 
+            width: auto;
+            object-fit: contain;
+        }
+
+        .text-gold {
+            color: #c9a25b !important;
+        }
+
+        .btn-call {
+            background-color: #c9a25b;
+            color: #121212;
+            font-weight: bold;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-call:hover {
+            background-color: #e5b869;
+            box-shadow: 0 0 15px rgba(201, 162, 91, 0.6);
+        }
+
+        /* Section Styling */
+        .section-title-sub {
+            color: #c9a25b;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.95rem;
+            font-weight: bold;
+        }
+
+        .section-title-main {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* 1. UTK KIBBLES SECTION CARDS */
+        .kibbles-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(201, 162, 91, 0.2);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kibbles-card:hover {
+            transform: translateY(-5px);
+            border-color: #c9a25b;
+            box-shadow: 0 10px 25px rgba(201, 162, 91, 0.15);
+        }
+
+        .top-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #c9a25b, #e5b869);
+            color: #121212;
+            font-weight: bold;
+            font-size: 0.8rem;
+            padding: 5px 15px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        .kibbles-img-container {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .kibbles-img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        /* 2. GROOMING SECTION */
+        .grooming-card {
+            background: #111111;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px 24px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .grooming-icon-circle {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(201, 162, 91, 0.1);
+            border: 1px solid rgba(201, 162, 91, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .grooming-icon-circle i {
+            color: #c9a25b;
+            font-size: 1.2rem; /* Dibesarkan sedikit supaya lebih jelas */
+        }
+
+        .grooming-card h4 {
+            font-size: 1.7rem;
+            font-weight: normal;
+            margin-bottom: 6px;
+        }
+
+        .grooming-card p {
+            color: #888888;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .grooming-row-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .grooming-item-name {
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+
+        .grooming-item-price {
+            font-size: 1.1rem;
+            color: #c9a25b;
+            font-weight: bold;
+        }
+
+        .grooming-sub-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-top: 15px;
+        }
+
+        /* 3. BOARDING SECTION CARDS */
+        .boarding-card {
+            background: linear-gradient(135deg, rgba(201, 162, 91, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(201, 162, 91, 0.25);
+            border-radius: 15px;
+            padding: 35px 25px;
+            transition: all 0.3s ease;
+        }
+
+        .boarding-card:hover {
+            border-color: #c9a25b;
+            box-shadow: 0 10px 30px rgba(201, 162, 91, 0.2);
+            transform: scale(1.03);
+        }
+
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #c9a25b;
+            margin: 15px 0;
+        }
+
+        .price-tag span {
+            font-size: 1rem;
+            color: #b3b3b3;
+            font-weight: normal;
+        }
+
+        /* Divider */
+        hr.gold-divider {
+            border-top: 1px solid rgba(201, 162, 91, 0.3);
+            margin: 60px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-gold d-flex align-items-center" href="menu.html">
+                <img src="picture/logo.png" alt="Logo" class="navbar-logo me-2" onerror="this.style.display='none'">
+                <span>Amazing Cat Shop</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="menu.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="menu.html#cat-profile-section">Cat Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-gold" href="services.html">Our Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="products.html">Shop Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="dashboard.html">Customer Dashboard</a>
+                    </li>
+                </ul>
+                <a href="https://wa.me/60172645813" target="_blank" class="btn btn-call btn-sm px-4 rounded-pill">Call Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER UTAMA SERVICES -->
+    <div class="container text-center pt-5 mt-4">
+        <div class="section-title-sub">What We Offer</div>
+        <h1 class="fw-bold text-white display-4">Our Premium Services</h1>
+        <p class="text-white-50 mx-auto" style="max-width: 600px;">Explore our finest selection of quality cat food, top-tier grooming styles, and luxury boarding options tailored for your feline family.</p>
+    </div>
+
+    <!-- ==========================================
+         FIRST: KIBBLES SELECTION 
+         ========================================== -->
+    <div class="container my-5 pt-4">
+        <div class="text-center mb-5">
+            <div class="section-title-sub">Premium Food</div>
+            <h2 class="fw-bold text-white">Best Selling Kibbles</h2>
+        </div>
+
+        <div class="row g-4">
+            <!-- TOP 1: Royal Canin -->
+            <div class="col-md-4">
+                <div class="kibbles-card h-100 text-center pb-4">
+                    <div class="top-badge">TOP 1</div>
+                    <div class="kibbles-img-container">
+                        <img src="rc.png" alt="Royal Canin" class="kibbles-img" onerror="this.src='https://placehold.co/200x200/1a1a1a/c9a25b?text=Royal+Canin';">
+                    </div>
+                    <div class="px-4 mt-3">
+                        <h4 class="fw-bold text-gold">Royal Canin</h4>
+                        <p class="text-light small">Mempunyai pelbagai variasi makanan berkhasiat dengan fungsi spesifik mengikut keperluan kesihatan unik kucing anda.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TOP 2: Taste Of The Wild -->
+            <div class="col-md-4">
+                <div class="kibbles-card h-100 text-center pb-4">
+                    <div class="top-badge">TOP 2</div>
+                    <div class="kibbles-img-container">
+                        <img src="totw.png" alt="Taste Of The Wild" class="kibbles-img" onerror="this.src='https://placehold.co/200x200/1a1a1a/c9a25b?text=Taste+Of+The+Wild';">
+                    </div>
+                    <div class="px-4 mt-3">
+                        <h4 class="fw-bold text-gold">Taste Of The Wild</h4>
+                        <p class="text-light small">Formulasi bebas bijirin berkualiti tinggi yang sangat bagus untuk kucing cerewet (picky), membantu menggemukkan badan, serta melebatkan bulu.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TOP 3: Buttons & Bows -->
+            <div class="col-md-4">
+                <div class="kibbles-card h-100 text-center pb-4">
+                    <div class="top-badge">TOP 3</div>
+                    <div class="kibbles-img-container">
+                        <img src="bnb.png" alt="Buttons & Bows" class="kibbles-img" onerror="this.src='https://placehold.co/200x200/1a1a1a/c9a25b?text=Buttons+Bows';">
+                    </div>
+                    <div class="px-4 mt-3">
+                        <h4 class="fw-bold text-gold">Buttons & Bows</h4>
+                        <p class="text-light small">Dibuat khas menggunakan bahan original dan organik premium yang sangat berkesan untuk menggemukkan kucing serta mencantikkan kegebuan bulu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><hr class="gold-divider"></div>
+
+    <!-- ==========================================
+         SECOND: GROOMING SERVICES
+         ========================================== -->
+    <div class="container my-5">
+        <div class="text-center mb-5">
+            <div class="section-title-sub">Our Services</div>
+            <h2 class="fw-bold text-white font-monospace" style="font-size: 2.8rem;">Grooming <span style="font-family: 'Times New Roman', serif; font-style: italic; font-weight: normal;">Services</span></h2>
+            <p class="text-white-50 mx-auto" style="max-width: 650px;">Amazing Cat Shop offers premium grooming, teddy cut and lion cut services for your beloved feline friend.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <!-- Card 1: Premium Grooming (IKON SIKAT) -->
+            <div class="col-md-4">
+                <div class="grooming-card">
+                    <div>
+                        <div class="grooming-icon-circle">
+                            <i class="fas fa-comb"></i>
+                        </div>
+                        <h4>Premium Grooming</h4>
+                        <p>Full grooming service with bath & blowdry</p>
+                    </div>
+                    <div class="grooming-row-item">
+                        <span class="grooming-item-name">Shorthair</span>
+                        <span class="grooming-item-price">RM50</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Add-Ons (IKON TAPAK KAKI KUCING / PAW) -->
+            <div class="col-md-4">
+                <div class="grooming-card">
+                    <div>
+                        <div class="grooming-icon-circle">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                        <h4>Add-Ons</h4>
+                        <p>Additional treatments for extra care</p>
+                    </div>
+                    <div class="grooming-row-item">
+                        <span class="grooming-item-name">Medicated Fungus</span>
+                        <span class="grooming-item-price">RM15</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Special Grooming (IKON BINTANG) -->
+            <div class="col-md-4">
+                <div class="grooming-card">
+                    <div>
+                        <div class="grooming-icon-circle">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Special Grooming</h4>
+                        <p>Premium styling & specialty cuts</p>
+                    </div>
+                    <div class="grooming-sub-box">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="grooming-item-name fw-bold" style="font-size: 1rem;">Lion Cut</span>
+                            <span class="grooming-item-price" style="font-size: 1rem;">RM180</span>
+                        </div>
+                        <div class="small text-white-50 mt-1" style="font-size: 0.85rem;">Includes medicated treatment</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><hr class="gold-divider"></div>
+
+    <!-- ==========================================
+         THIRD: BOARDING SERVICES (CAT HOTEL)
+         ========================================== -->
+    <div class="container my-5 pb-5">
+        <div class="text-center mb-5">
+            <div class="section-title-sub">Cat Hotel</div>
+            <h2 class="fw-bold text-white">Premium Boarding Rates</h2>
+            <p class="text-white-50">Safe, clean, and comfortable overnight stay for your cats.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <!-- Small Suite -->
+            <div class="col-md-4 col-sm-6">
+                <div class="boarding-card text-center">
+                    <div class="text-gold mb-3"><i class="fas fa-box shadow-sm fa-2x"></i></div>
+                    <h4 class="fw-bold text-white">Small Room</h4>
+                    <p class="text-white-50 small">Perfect for single cozy rest</p>
+                    <div class="price-tag">RM30 <span>/ 1 Night</span></div>
+                    <ul class="text-start text-white-50 small ps-4 mb-0">
+                        <li>Comfortable room bed</li>
+                        <li>Standard litter box</li>
+                        <li>Fresh water refill daily</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Medium Suite -->
+            <div class="col-md-4 col-sm-6">
+                <div class="boarding-card text-center" style="background: rgba(201, 162, 91, 0.12); border-color: rgba(201, 162, 91, 0.4);">
+                    <div class="text-gold mb-3"><i class="fas fa-hotel fa-2x"></i></div>
+                    <h4 class="fw-bold text-gold">Medium Room</h4>
+                    <p class="text-white-50 small">Spacious for active playtime</p>
+                    <div class="price-tag">RM45 <span>/ 1 Night</span></div>
+                    <ul class="text-start text-white-50 small ps-4 mb-0">
+                        <li>Multi-level structure</li>
+                        <li>Large sized litter box</li>
+                        <li>Daily room sanitation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Big Suite -->
+            <div class="col-md-4 col-sm-6">
+                <div class="boarding-card text-center">
+                    <div class="text-gold mb-3"><i class="fas fa-crown fa-2x"></i></div>
+                    <h4 class="fw-bold text-white">Big Room</h4>
+                    <p class="text-white-50 small">Ultimate luxury room setup</p>
+                    <div class="price-tag">RM60 <span>/ 1 Night</span></div>
+                    <ul class="text-start text-white-50 small ps-4 mb-0">
+                        <li>Premium extra wide space</li>
+                        <li>Premium cat litter box</li>
+                        <li>24/7 dedicated CCTV monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="text-center mt-5 pt-3">
+            <a href="https://wa.me/60172645813?text=Hi%20Amazing%20Cat%20Shop%2C%20saya%20berminat%20nak%20tempah%20servis%20kucing." target="_blank" class="btn btn-call px-5 py-3 fs-5 rounded-pill shadow">
+                <i class="fab fa-whatsapp me-2"></i>Book Selected Service Now
+            </a>
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

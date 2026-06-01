@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Cat Shop - Welcome</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/releases/v6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            
+            background: linear-gradient(rgba(18, 18, 18, 0.55), rgba(18, 18, 18, 0.75)), url('background.menu.1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        
+        .navbar-custom {
+            background-color: #1a1a1a;
+            border-bottom: 2px solid #c9a25b;
+        }
+
+        .navbar-logo {
+            height: 40px; 
+            width: auto;
+            object-fit: contain;
+        }
+
+        .text-gold {
+            color: #c9a25b !important;
+        }
+
+        .btn-call {
+            background-color: #c9a25b;
+            color: #121212;
+            font-weight: bold;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-call:hover {
+            background-color: #e5b869;
+            color: #121212;
+            box-shadow: 0 0 15px rgba(201, 162, 91, 0.6);
+        }
+
+        
+        .btn-logout {
+            border: 1px solid #dc3545;
+            color: #dc3545;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-logout:hover {
+            background-color: #dc3545;
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(220, 53, 69, 0.4);
+        }
+
+        .hero-section {
+            position: relative;
+            min-height: 80vh; 
+            padding: 60px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(18, 18, 18, 0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        
+        .welcome-glow {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #c9a25b;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(201, 162, 91, 0.6), 
+                         0 0 20px rgba(201, 162, 91, 0.4);
+            animation: goldenGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes goldenGlow {
+            0% {
+                text-shadow: 0 0 10px rgba(201, 162, 91, 0.6), 0 0 20px rgba(201, 162, 91, 0.4);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(201, 162, 91, 0.9), 0 0 35px rgba(201, 162, 91, 0.6), 0 0 50px rgba(201, 162, 91, 0.4);
+            }
+        }
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .info-meta {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+        }
+        
+        .info-meta span {
+            margin: 0 15px;
+        }
+
+        /* Style Butang Interaktif */
+        .btn-gold-action {
+            background-color: #c9a25b;
+            color: #121212;
+            font-weight: 900;
+            font-size: 1.1rem;
+            padding: 12px 35px;
+            border: 2px solid #c9a25b;
+            transition: all 0.4s ease;
+        }
+
+        .btn-gold-action:hover {
+            background-color: transparent;
+            color: #c9a25b;
+            box-shadow: 0 0 20px rgba(201, 162, 91, 0.5);
+            transform: scale(1.05);
+        }
+
+        .btn-outline-custom {
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 12px 35px;
+            transition: all 0.4s ease;
+        }
+
+        .btn-outline-custom:hover {
+            background-color: #ffffff;
+            color: #121212;
+            transform: scale(1.05);
+        }
+
+        .brand-desc {
+            max-width: 800px;
+            margin: 40px auto 0 auto;
+            color: #b3b3b3;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        
+        .profile-box-gradient {
+            background: linear-gradient(135deg, rgba(201, 162, 91, 0.15) 0%, rgba(255, 255, 255, 0.03) 100%);
+            border: 1px solid rgba(201, 162, 91, 0.25);
+            border-radius: 10px;
+            padding: 12px;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-box-gradient:hover {
+            transform: translateY(-2px);
+            border-color: rgba(201, 162, 91, 0.5);
+        }
+
+        /* Custom Style Modals */
+        .modal-content-custom {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border: 2px solid #c9a25b;
+            border-radius: 15px;
+        }
+
+        .form-control-custom {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(201, 162, 91, 0.4);
+            color: #ffffff;
+        }
+
+        .form-control-custom:focus {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: #c9a25b;
+            color: #ffffff;
+            box-shadow: none;
+        }
+
+        
+        .cat-card-wrapper {
+            background: rgba(20, 20, 20, 0.85); 
+            backdrop-filter: blur(15px); 
+            border: 1px solid rgba(201, 162, 91, 0.4); 
+            border-radius: 15px; 
+            box-shadow: 0 10px 35px rgba(0,0,0,0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-gold d-flex align-items-center" href="menu.html">
+                <img src="picture/logo.png" alt="Logo" class="navbar-logo me-2" onerror="this.style.display='none'">
+                <span>Amazing Cat Shop</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link active text-gold" href="menu.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#cat-profile-section">Cat Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="service.html">Our Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="products.html">Shop Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="dashboard.html">Customer Dashboard</a>
+                    </li>
+                </ul>
+                <div class="d-flex gap-2 align-items-center flex-column flex-lg-row mt-3 mt-lg-0">
+                    <a href="https://wa.me/60172645813" target="_blank" class="btn btn-call btn-sm px-4 rounded-pill w-100 text-center">Call Us</a>
+                    <button onclick="handleLogout()" class="btn btn-logout btn-sm px-3 rounded-pill w-100" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt me-1"></i>Log Out
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="container">
+            <div class="welcome-glow">Welcome To</div>
+            <h1 class="main-title text-white">AMAZING CAT SHOP<br><span class="text-gold">Cat Hotel & Grooming</span></h1>
+            
+            <div class="info-meta">
+                <span><i class="fas fa-clock text-gold me-2"></i>Open Daily • 10 AM – 6 PM</span>
+                <span class="d-block d-md-inline mt-2 mt-md-0"><i class="fas fa-map-marker-alt text-gold me-2"></i>Puchong Perdana (Main Branch)</span>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                <a href="https://wa.me/60172645813?text=Hi%20Amazing%20Cat%20Shop%2C%20saya%20nak%20booking%20slot%20untuk%20kucing%20saya." target="_blank" class="btn btn-gold-action rounded-3">
+                    <i class="fab fa-whatsapp me-2"></i>Book Now
+                </a>
+                <a href="dashboard.html" class="btn btn-outline-custom rounded-3">
+                    <i class="fas fa-folder-open me-2"></i>View Dashboard
+                </a>
+            </div>
+
+            <p class="brand-desc">
+                Amazing Cat Shop is a premium cat hotel and professional grooming service located exclusively in Puchong Perdana. 
+                We provide big suites, comfy environments, clean spaces, and 24hr CCTV monitoring to ensure your beloved cats are safely pampered.
+            </p>
+        </div>
+    </div>
+
+    <div id="cat-profile-section" class="container my-5 pt-2">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="fw-bold text-gold m-0">
+                        <i class="fas fa-paw me-2"></i>Your Cats Profile
+                    </h3>
+                    <button class="btn btn-sm btn-warning text-dark fw-bold rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#catModal" onclick="openAddModal()">
+                        <i class="fas fa-plus-circle me-1"></i>Add New Cat
+                    </button>
+                </div>
+
+                <div id="cats-container">
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="catModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold text-gold" id="modalTitle"><i class="fas fa-edit me-2"></i>Cat Information</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="catForm">
+                    <input type="hidden" id="cat-index">
+                    
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label small text-gold fw-bold">Upload Cat Picture</label>
+                            <input type="file" id="input-image" class="form-control form-control-custom" accept="image/*">
+                            <div class="form-text text-white-50 small">Leave blank to keep current image or use default.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small text-gold fw-bold">Cat Name</label>
+                            <input type="text" id="input-name" class="form-control form-control-custom" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small text-gold fw-bold">Breed (Baka)</label>
+                            <input type="text" id="input-breed" class="form-control form-control-custom" required>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-6">
+                                <label class="form-label small text-gold fw-bold">Age (Umur)</label>
+                                <input type="text" id="input-age" class="form-control form-control-custom" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label small text-gold fw-bold">Vaccination Status</label>
+                                <select id="input-vac" class="form-select form-control-custom">
+                                    <option value="Full Vaccination">Full Vaccination</option>
+                                    <option value="Partial / Dose 1 & 2">Partial / Dose 1 & 2</option>
+                                    <option value="Not Vaccinated">Not Vaccinated</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small text-gold fw-bold">Main Kibbles Brand</label>
+                            <input type="text" id="input-food" class="form-control form-control-custom">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small text-gold fw-bold">Allergic Support (Alahan)</label>
+                            <input type="text" id="input-allergy" class="form-control form-control-custom">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label small text-gold fw-bold">Additional Notes</label>
+                            <textarea id="input-notes" class="form-control form-control-custom" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-secondary">
+                        <button type="button" class="btn btn-sm btn-secondary rounded-pill px-3" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-warning text-dark fw-bold rounded-pill px-4">Save Profile</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+       
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            alert('Akses ditolak! Sila log masuk terlebih dahulu. 🐾');
+            window.location.href = 'Login.html';
+        }
+
+        // Fungsi Proses Log Out
+        function handleLogout() {
+            if(confirm("Adakah anda pasti ingin log keluar? 🐾")) {
+                localStorage.removeItem('isLoggedIn'); 
+                window.location.href = 'index.html'; 
+            }
+        }
+
+        // ..DATA KUCING ---
+        const defaultCats = [
+            {
+                name: "Milo",
+                breed: "British Shorthair",
+                age: "2 Years Old",
+                vac: "Full Vaccination",
+                food: "Royal Canin Fit 32",
+                allergy: "None / Tiada",
+                notes: "Sangat manja, suka digosok bahagian dagu.",
+                image: "milo.png"
+            }
+        ];
+
+        let catsList = JSON.parse(localStorage.getItem('catsList')) || defaultCats;
+
+        function renderCats() {
+            const container = document.getElementById('cats-container');
+            container.innerHTML = ''; 
+
+            catsList.forEach((cat, index) => {
+                let catImgSrc = cat.image || "https://placehold.co/150x150/1a1a1a/c9a25b?text=Meow";
+
+                const catCard = `
+                    <div class="card p-4 text-white cat-card-wrapper mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="fw-bold text-gold m-0">
+                                <i class="fas fa-cat me-2"></i>Cat #${index + 1}
+                            </h4>
+                            <div>
+                                <button class="btn btn-sm btn-outline-warning rounded-pill px-3 me-2" data-bs-toggle="modal" data-bs-target="#catModal" onclick="openEditModal(${index})">
+                                    <i class="fas fa-edit me-1"></i>Edit
+                                </button>
+                                ${index !== 0 ? `<button class="btn btn-sm btn-outline-danger rounded-pill px-3" onclick="deleteCat(${index})"><i class="fas fa-trash me-1"></i>Remove</button>` : ''}
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mb-4">
+                            <div class="mb-2 position-relative d-inline-block mx-auto">
+                                <img src="${catImgSrc}" alt="Cat Picture" class="rounded-circle shadow" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #c9a25b;" onerror="this.src='https://placehold.co/150x150/1a1a1a/c9a25b?text=Meow';">
+                            </div>
+                            <h2 class="fw-bold mb-0 text-white">${cat.name}</h2>
+                            <p class="text-gold small text-uppercase tracking-wider mb-3" style="letter-spacing: 1px;">${cat.breed}</p>
+                            
+                            <div class="p-2 rounded-3 d-inline-block px-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                                <span class="small text-white-50">Current Grooming Status:</span>
+                                <span class="badge bg-success ms-2 px-3 py-1 rounded-pill">Ready to Pick Up ✨</span>
+                            </div>
+                        </div>
+
+                        <div class="row g-3" style="font-size: 0.95rem;">
+                            <div class="col-sm-6 col-md-4">
+                                <div class="profile-box-gradient">
+                                    <span class="text-white-50 small"><i class="fas fa-hourglass-half text-gold me-1"></i>Age (Umur)</span>
+                                    <div class="fw-bold text-white mt-1">${cat.age}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="profile-box-gradient">
+                                    <span class="text-white-50 small"><i class="fas fa-shield-alt text-gold me-1"></i>Vaccination</span>
+                                    <div class="fw-bold text-white mt-1">${cat.vac}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="profile-box-gradient">
+                                    <span class="text-white-50 small"><i class="fas fa-utensils text-gold me-1"></i>Main Kibbles</span>
+                                    <div class="fw-bold text-white mt-1">${cat.food || 'Tiada'}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="profile-box-gradient">
+                                    <span class="text-white-50 small"><i class="fas fa-exclamation-triangle text-danger me-1"></i>Allergic Support</span>
+                                    <div class="fw-bold text-danger mt-1">${cat.allergy || 'None / Tiada'}</div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="profile-box-gradient">
+                                    <span class="text-white-50 small"><i class="fas fa-sticky-note text-gold me-1"></i>Additional Notes</span>
+                                    <div class="text-light mt-1 small" style="font-style: italic;">${cat.notes || 'Tiada nota tambahan.'}</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4 pt-2 border-top border-secondary">
+                            <p class="text-white-50 small mb-0">Last grooming appointment: 25 May 2026</p>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += catCard;
+            });
+        }
+
+        function openAddModal() {
+            document.getElementById('catForm').reset();
+            document.getElementById('cat-index').value = "new";
+            document.getElementById('modalTitle').innerHTML = '<i class="fas fa-plus-circle me-2"></i>Add New Cat Profile';
+        }
+
+        function openEditModal(index) {
+            const cat = catsList[index];
+            document.getElementById('cat-index').value = index;
+            document.getElementById('input-name').value = cat.name;
+            document.getElementById('input-breed').value = cat.breed;
+            document.getElementById('input-age').value = cat.age;
+            document.getElementById('input-vac').value = cat.vac;
+            document.getElementById('input-food').value = cat.food;
+            document.getElementById('input-allergy').value = cat.allergy;
+            document.getElementById('input-notes').value = cat.notes;
+            document.getElementById('input-image').value = ''; 
+            document.getElementById('modalTitle').innerHTML = '<i class="fas fa-edit me-2"></i>Edit Cat Information';
+        }
+
+        function deleteCat(index) {
+            if(confirm("Are you sure you want to remove this cat profile? 🐾")) {
+                catsList.splice(index, 1);
+                localStorage.setItem('catsList', JSON.stringify(catsList));
+                renderCats();
+            }
+        }
+
+        document.getElementById('catForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const index = document.getElementById('cat-index').value;
+            const imageFile = document.getElementById('input-image').files[0];
+
+            const catData = {
+                name: document.getElementById('input-name').value,
+                breed: document.getElementById('input-breed').value,
+                age: document.getElementById('input-age').value,
+                vac: document.getElementById('input-vac').value,
+                food: document.getElementById('input-food').value,
+                allergy: document.getElementById('input-allergy').value,
+                notes: document.getElementById('input-notes').value,
+                image: index !== "new" ? catsList[index].image : "" 
+            };
+
+            const saveProcess = () => {
+                if (index === "new") {
+                    catsList.push(catData);
+                } else {
+                    catsList[index] = catData;
+                }
+                
+                localStorage.setItem('catsList', JSON.stringify(catsList));
+                renderCats();
+
+                const modalElement = document.getElementById('catModal');
+                const modalInstance = bootstrap.Modal.getInstance(modalElement);
+                modalInstance.hide();
+
+                alert('Cat Profile saved and secured successfully! 🐾✨');
+            };
+
+            if (imageFile) {
+                const reader = new FileReader();
+                reader.onloadend = function() {
+                    catData.image = reader.result;
+                    saveProcess();
+                };
+                reader.readAsDataURL(imageFile);
+            } else {
+                if(index === "new") {
+                    catData.image = "";
+                }
+                saveProcess();
+            }
+        });
+
+        
+        renderCats();
+    </script>
+</body>
+</html>
